@@ -9,62 +9,92 @@
 </head>
 <body>
     <!-- Background -->
-    <div>
+    <div class="bg-zinc-900 w-full h-full text-lime-200 flex flex-col">
         <!-- Hero -->
         <div>
             <!-- Foto -->
             <!-- Nomes -->
         </div>
-        <!-- Botões de filtro -->
-        <div>
-
-        </div>
-        <!-- Campo de busca -->
-        <div>
-
+        <!-- Navbar -->
+        <div class="w-full flex items-center justify-between my-4">
+            <!-- Botões de filtro -->
+            <div class="hidden sm:grid grid-cols-4 grid-flow-row gap-2">
+                <button class="w-full rounded-xl border-4 border-zinc-500 hover:bg-lime-900 hover:border-zinc-200">Tudo</button>
+                <button class="w-full rounded-xl border-4 border-zinc-500 hover:bg-lime-900 hover:border-zinc-200">Cozinha</button>
+                <button class="w-full rounded-xl border-4 border-zinc-500 hover:bg-lime-900 hover:border-zinc-200">Quarto</button>
+                <button class="w-full rounded-xl border-4 border-zinc-500 hover:bg-lime-900 hover:border-zinc-200">Sala</button>
+            </div>
+            <!-- Campo de busca -->
+            <div class="w-[85%] sm:w-[45%]">
+                <input class="w-full border-4 rounded-xl px-4 border-zinc-500 hover:bg-lime-100 focus:bg-lime-100"
+                type="text"
+                placeholder="Buscar por presente">
+            </div>
         </div>
         <!-- Área dos cards -->
-        <div>
+        <div
+            data-js ="girfs-list"
+            class="bg-zinc-900 grid grid-flow-row grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6">
             <!-- Cards -->
-            <div>
-                Título
-            </div>
-            <div>
-                Foto
-            </div>
-            <div>
-                Descrição
-            </div>
-            <div>
-                Preço
+            <div class="w-full rounded-xl flex flex-col items-center justify-center">
+                <div class="w-full border-4 rounded-xl border-zinc-500 flex flex-col items-center justify-center hover:scale-[1.02]">
+                    <div class="">
+                        Título
+                    </div>
+                    <div>
+                        Foto
+                    </div>
+                    <div>
+                        Descrição
+                    </div>
+                    <div>
+                        Preço
+                    </div>
+                </div>    
+                <!-- Botão -->
+                <button class="w-full border-4 rounded-xl border-zinc-500 hover:bg-lime-900 px-4 py-2 text-lg font-bold hover:scale-[1.05]">
+                    PRESENTEAR
+                </button>
             </div>
         </div>
-        <!-- Botão -->
-        <button>
-            PRESENTEAR
-        </button>
         <!-- Overlay -->
         <div>
 
         </div>
         <!-- Modal -->
-        <div>
-            <div>
-                Enviar Vale
-                X
+        <div class="absolute w-full border-4 rounded-xl sm:w-[40%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+            <div class="w-full flex flex-col items-center justify-between bg-zinc-700 rounded-t-xl">
+                <div class="w-[95%] text-end text-xl font-bold">
+                    X
+                </div>
+                <div class="text-2xl font-bold">
+                    ENVIAR VALE
+                </div>
             </div>
-            <div>
-                Digite seu nome
-            </div>
-            <div>
-                checkbox
-                Texto
-            </div>
-            <button>
+            <form class="bg-zinc-700 rounded-b-xl">
+                <label for="name"></label>
+                <input 
+                class="w-full border-4 rounded-xl border-zinc-500 hover:bg-lime-100 focus:bg-lime-100 px-4"
+                type="text"
+                placeholder="Digite seu nome">
+                <div class="flex">
+                    <div class="w-7 h-7 border-4 rounded-md border-zinc-500">
+                    </div>
+                    PIX
+                </div>
+                <div class="flex">
+                    <div class="w-7 h-7 border-4 rounded-md border-zinc-500">
+                    </div>
+                    Transferência
+                </div>
+            </form>
+            <button class="w-full border-4 rounded-xl border-zinc-500 hover:bg-lime-900 px-4 py-2 text-lg font-bold hover:scale-[1.05]">
                 CONFIRMAR
             </button>
+            
         </div>
     </div>
     <script src="./scripts.js"></script>
+    <script type="modulo" src="./firebase.js"></script>
 </body>
 </html>
