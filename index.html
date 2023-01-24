@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <title>Fayla & Danilo</title>
-</head>
-<body>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Fayla & Danilo</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body class="bg-zinc-900">
     <!-- Background -->
-    <div class="bg-zinc-900 w-full h-full text-lime-200 flex flex-col">
+    <div class="w-full h-full text-lime-200 flex flex-col">
         <!-- Hero -->
         <div>
             <!-- Foto -->
@@ -19,51 +16,33 @@
         <div class="w-full flex items-center justify-between my-4">
             <!-- Botões de filtro -->
             <div class="hidden sm:grid grid-cols-4 grid-flow-row gap-2">
-                <button class="w-full rounded-xl border-4 border-zinc-500 hover:bg-lime-900 hover:border-zinc-200">Tudo</button>
-                <button class="w-full rounded-xl border-4 border-zinc-500 hover:bg-lime-900 hover:border-zinc-200">Cozinha</button>
-                <button class="w-full rounded-xl border-4 border-zinc-500 hover:bg-lime-900 hover:border-zinc-200">Quarto</button>
-                <button class="w-full rounded-xl border-4 border-zinc-500 hover:bg-lime-900 hover:border-zinc-200">Sala</button>
+                <button class="hover:bg-lime-900 w-full border-4 border-lime-800 hover:border-lime-600 rounded-xl hover:scale-[1.02]">Tudo</button>
+                <button class="hover:bg-lime-900 w-full border-4 border-lime-800 hover:border-lime-600 rounded-xl hover:scale-[1.02]">Cozinha</button>
+                <button class="hover:bg-lime-900 w-full border-4 border-lime-800 hover:border-lime-600 rounded-xl hover:scale-[1.02]">Quarto</button>
+                <button class="hover:bg-lime-900 w-full border-4 border-lime-800 hover:border-lime-600 rounded-xl hover:scale-[1.02]">Sala</button>
             </div>
             <!-- Campo de busca -->
-            <div class="w-[85%] sm:w-[45%]">
-                <input class="w-full border-4 rounded-xl px-4 border-zinc-500 hover:bg-lime-100 focus:bg-lime-100"
+            <div class="w-[85%] sm:w-[45%] flex">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#000000" viewBox="0 0 256 256"><circle cx="116" cy="116" r="84" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></circle><line x1="175.4" y1="175.4" x2="224" y2="224" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>
+                <input class="w-full border-4 rounded-xl px-4 border-lime-800 hover:bg-lime-100 focus:bg-lime-100 "
                 type="text"
                 placeholder="Buscar por presente">
             </div>
         </div>
         <!-- Área dos cards -->
         <div
-            data-js ="girfs-list"
-            class="bg-zinc-900 grid grid-flow-row grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6">
-            <!-- Cards -->
-            <div class="w-full rounded-xl flex flex-col items-center justify-center">
-                <div class="w-full border-4 rounded-xl border-zinc-500 flex flex-col items-center justify-center hover:scale-[1.02]">
-                    <div class="">
-                        Título
-                    </div>
-                    <div>
-                        Foto
-                    </div>
-                    <div>
-                        Descrição
-                    </div>
-                    <div>
-                        Preço
-                    </div>
-                </div>    
-                <!-- Botão -->
-                <button class="w-full border-4 rounded-xl border-zinc-500 hover:bg-lime-900 px-4 py-2 text-lg font-bold hover:scale-[1.05]">
-                    PRESENTEAR
-                </button>
-            </div>
+            id ="card-space"
+            class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 items-start mx-auto">
         </div>
         <!-- Overlay -->
-        <div>
+        <div id="overlay" class="hidden w-screen h-screen bg-black/80 fixed inset-0">
 
         </div>
         <!-- Modal -->
-        <div class="absolute w-full border-4 rounded-xl sm:w-[40%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <div class="w-full flex flex-col items-center justify-between bg-zinc-700 rounded-t-xl">
+        <div 
+            id="modal"
+            class="hidden fixed w-full rounded-xl sm:w-[40%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+            <div class="w-full flex flex-col items-center justify-between px-4 pb-6 bg-zinc-800 rounded-t-xl">
                 <div class="w-[95%] text-end text-xl font-bold">
                     X
                 </div>
@@ -71,30 +50,150 @@
                     ENVIAR VALE
                 </div>
             </div>
-            <form class="bg-zinc-700 rounded-b-xl">
+            <form class="w-full px-4 pb-6 bg-zinc-800 rounded-b-xl">
                 <label for="name"></label>
                 <input 
-                class="w-full border-4 rounded-xl border-zinc-500 hover:bg-lime-100 focus:bg-lime-100 px-4"
+                id="name"
+                class="w-full border-4 py-2 rounded-xl border-zinc-500 hover:bg-lime-100 focus:bg-lime-100 px-4 font-black"
                 type="text"
                 placeholder="Digite seu nome">
-                <div class="flex">
-                    <div class="w-7 h-7 border-4 rounded-md border-zinc-500">
+                <div class="flex py-5 items-center">
+                    <div class="border-4 border-zinc-500 rounded-md">
+                        <input class="w-6 h-6 border-4 rounded-md accent-lime-400" type="checkbox" id="pix" name="pix" value="pix" checked>
                     </div>
-                    PIX
+                    <label class="w-full mx-4" for="pix">PIX</label>
                 </div>
-                <div class="flex">
-                    <div class="w-7 h-7 border-4 rounded-md border-zinc-500">
+                <div class="flex py-2 items-center">
+                    <div class="border-4 border-zinc-500 rounded-md">
+                        <input class="w-6 h-6 border-4 rounded-md accent-lime-400" type="checkbox" id="transf" name="transf" value="transf">
                     </div>
-                    Transferência
+                    <label class="w-full mx-4" for="transf">Transferência</label>
                 </div>
             </form>
-            <button class="w-full border-4 rounded-xl border-zinc-500 hover:bg-lime-900 px-4 py-2 text-lg font-bold hover:scale-[1.05]">
+            <button 
+                name=""
+                id="confirm"
+                class="w-full bg-zinc-800 border-4 rounded-xl border-lime-700 hover:bg-lime-900 px-4 py-2 text-lg font-bold hover:scale-[1.05]"
+                >
                 CONFIRMAR
             </button>
             
         </div>
     </div>
-    <script src="./scripts.js"></script>
-    <script type="modulo" src="./firebase.js"></script>
-</body>
+    </body>
 </html>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-app.js";
+    import { getFirestore, doc, collection, updateDoc, getDoc, query, getDocs, where } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAfYq4T-9H65QPFCpPE4k-edR8C7oqu3hE",
+      authDomain: "weddingdb-4a324.firebaseapp.com",
+      projectId: "weddingdb-4a324",
+      storageBucket: "weddingdb-4a324.appspot.com",
+      messagingSenderId: "605112971285",
+      appId: "1:605112971285:web:bd6ab1dc268b3fffbb1e1c"
+    };
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app)
+
+    // let filter
+    // const q = query(collection(db, '<nome da tabela>'), where('chave','==',{filter}))
+    // getDocs(q)
+    
+    // getDoc(doc(db, 'gifts', elementId)).then(docSnap =>{
+    //     if(docSnap.exists()) {
+    //         console.log(docSnap.data())
+    //     } else {
+    //         console.log('No data')
+    //     }
+    // })
+
+    function sendGifter() {
+        let payWays = []
+        const gifter = document.getElementById("name").value
+        if (document.querySelector('[name="pix"]:checked')) {
+            payWays.push(document.querySelector('[name="pix"]:checked').value.toLowerCase())
+        }
+        if (document.querySelector('[name="transf"]:checked')) {
+            payWays.push(document.querySelector('[name="transf"]:checked').value)
+        }
+        if (payWays.length > 0) {
+            updateDoc(db, 'gifts', document.getElementById("confirm").name), {
+                gifter: gifter,
+                payWays: payWays
+            }
+            alert('Entre em contato com Fayla ou com Danilo')
+        } else {
+            alert('Por favor, escolha uma forma de pagamento')
+        }
+        // payment.push(document.querySelector('[name="payment"]:checked'))
+    }
+
+    document.addEventListener('click', (e) => {
+        let elementId = e.target.id;
+        if (elementId !== '' && elementId.length == 20) {
+            console.log(elementId)
+            const modal = document.getElementById("modal")
+            modal.classList.remove("hidden")
+            modal.classList.add("flex","flex-col","items-center","rounded-lg")
+            const overlay = document.getElementById('overlay')
+            overlay.classList.remove("hidden")
+            const confirm_button = document.getElementById("confirm")
+            confirm_button.name = elementId
+        } else if (elementId == "confirm") {
+            sendGifter()
+            }
+        }
+    );
+
+    function createCard(item) {
+        const id = item.id
+        const image = item.image
+        const name = item.name
+        const description = item.description
+        return(            
+            `<div class="w-full h-full font-medium text-lime-100 font flex flex-col items-center justify-end rounded-xl gap-1">
+                <div class="w-full h-full bg-zinc-800 border-4 border-lime-700 rounded-2xl hover:scale-[1.02] flex flex-col justify-between">
+                    <div class="bg-zinc-800 w-full rounded-t-xl text-center font-extrabold text-xl flex justify-center items-center gap-3 py-2">
+                        <svg class="[&>*]:stroke-lime-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000000" viewBox="0 0 256 256">
+                            <rect x="32" y="80" width="192" height="48" rx="8" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></rect>
+                            <path d="M208,128v72a8,8,0,0,1-8,8H56a8,8,0,0,1-8-8V128" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
+                            <line x1="128" y1="80" x2="128" y2="208" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                            <path d="M173.3,68.7C161.9,80,128,80,128,80s0-33.9,11.3-45.3a24,24,0,0,1,34,34Z" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
+                            <path d="M82.7,68.7C94.1,80,128,80,128,80s0-33.9-11.3-45.3a24,24,0,0,0-34,34Z" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
+                        </svg>
+                        Vale ${item.name}
+                     </div>
+                    <div class="bg-zinc-800 w-full">
+                        <img class="w-full h-full object-cover rounded-lg" src= ${item.image} alt= ${item.name}></img>
+                    </div>
+                    <div class="bg-zinc-800 w-full text-center text-base">
+                        ${item.description}
+                    </div>
+                    <div class="bg-zinc-800 w-full rounded-b-xl text-center font-semibold text-lg">
+                        R$ ${item.price}
+                    </div>
+                </div>
+                <button 
+                    id="${item.id}"
+                    class="item-button bg-lime-700 hover:bg-lime-900 w-full border-4 border-lime-800 hover:border-lime-600 rounded-xl text-xl font-extrabold hover:scale-[1.05]"
+                    >PRESENTEAR
+                </button></div>
+            </div>`
+        )
+    }
+                
+    getDocs(collection(db, 'gifts')).then(docSnap => {
+        let gifts = []
+        docSnap.forEach((doc) => {
+            gifts.push({ ...doc.data(), id: doc.id})
+        });
+        const contentDiv = document.getElementById("card-space")
+        gifts.forEach(dataItem => {
+            let element = document.createElement('div');
+            element.innerHTML = createCard(dataItem);
+            contentDiv.appendChild(element);
+        })
+    })
+  </script>
