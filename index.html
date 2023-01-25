@@ -4,7 +4,7 @@
         <title>Fayla & Danilo</title>
         <link rel="stylesheet" href="style.css" />
     </head>
-    <body class="bg-zinc-900">
+    <body class="bg-zinc-900 text-2xl lg:text-lg xl:text-base">
     <!-- Background -->
     <div class="w-full h-full text-lime-200 flex flex-col">
         <!-- Hero -->
@@ -14,53 +14,91 @@
         </div>
         <!-- Navbar -->
         <div class="w-[98%] flex items-center justify-between my-4 mx-auto">
+            <!-- Hamburguer menu -->
+            <div 
+            class="w-[15%] px-4 lg:hidden">
+                <svg
+                id="menu" 
+                class="[&>*]:stroke-lime-400 cursor-pointer" 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="35" height="35" 
+                fill="#000000" viewBox="0 0 256 256">
+                    <line id="menu" x1="40" y1="64" x2="216" y2="64" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                    <line id="menu" x1="40" y1="128" x2="216" y2="128" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                    <line id="menu" x1="40" y1="192" x2="216" y2="192" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                </svg>
+            </div>
             <!-- Botões de filtro -->
-            <div class="hidden sm:grid grid-cols-4 grid-flow-row gap-2">
-                <button id="Tudo" class="hover:bg-lime-900 w-full border-4 border-lime-800 hover:border-lime-600 rounded-xl hover:scale-[1.02]">Tudo</button>
-                <button id="Cozinha" class="hover:bg-lime-900 w-full border-4 border-lime-800 hover:border-lime-600 rounded-xl hover:scale-[1.02]">Cozinha</button>
-                <button id="Quarto" class="hover:bg-lime-900 w-full border-4 border-lime-800 hover:border-lime-600 rounded-xl hover:scale-[1.02]">Quarto</button>
-                <button id="Sala" class="hover:bg-lime-900 w-full border-4 border-lime-800 hover:border-lime-600 rounded-xl hover:scale-[1.02]">Sala</button>
+            <div 
+            class="hidden w-[50%] lg:grid grid-cols-4 grid-flow-row gap-2">
+                <button id="Tudo" class="filter-buttons">Tudo</button>
+                <button id="Cozinha" class="filter-buttons">Cozinha</button>
+                <button id="Quarto" class="filter-buttons">Quarto</button>
+                <button id="Sala" class="filter-buttons">Sala</button>
             </div>
             <!-- Campo de busca -->
-            <div class="w-[85%] sm:w-[45%] flex gap-3 items-center">
-                <div id="buscar" class="flex items-center justify-end gap-3 font-bold cursor-pointer">
-                    BUSCAR
+            <div class="w-[85%] lg:w-[50%] flex gap-3 items-center">
+                <div 
+                id="search" 
+                class="flex items-center justify-end gap-3 font-bold cursor-pointer">
                     <svg 
-                        class="[&>*]:stroke-lime-400" 
-                        xmlns="http://www.w3.org/2000/svg" 
-                        width="30" height="30" fill="#000000" 
-                        viewBox="0 0 256 256">
-                        <circle cx="116" cy="116" r="84" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></circle>
-                        <line x1="175.4" y1="175.4" x2="224" y2="224" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                    id="search" 
+                    class="[&>*]:stroke-lime-400" 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    width="30" height="30" 
+                    fill="#000000" viewBox="0 0 256 256">
+                    <circle id="search" cx="116" cy="116" r="84" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></circle>
+                    <line id="search" x1="175.4" y1="175.4" x2="224" y2="224" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
                     </svg>
+                    <span 
+                    id="search" 
+                    class="hidden md:block">
+                        BUSCAR
+                    </span>
                 </div>
-                <input class="w-full border-4 rounded-xl px-4 border-lime-800 hover:bg-lime-100 focus:bg-lime-100 font-black"
+                <input 
+                id="search-entry" 
+                class="w-full border-4 rounded-xl px-4 border-lime-800 hover:bg-lime-50 focus:bg-lime-50 font-black hover:font-black focus:font-black items-center"
                 type="text"
                 placeholder="Buscar por presente">
             </div>
         </div>
+        <!-- Side Bar -->
+        <div
+        id="nav-menu"
+        class="hidden z-10 flex-col gap-2">
+            <button id="Tudo" class="filter-buttons">Tudo</button>
+            <button id="Cozinha" class="filter-buttons">Cozinha</button>
+            <button id="Quarto" class="filter-buttons">Quarto</button>
+            <button id="Sala" class="filter-buttons">Sala</button>
+        </div>
         <!-- Área dos cards -->
         <div
             id ="card-space"
-            class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 items-start mx-auto">
+            class="w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6 p-4 items-start mx-auto">
         </div>
         <!-- Overlay -->
-        <div id="overlay" class="hidden w-screen h-screen bg-black/80 fixed inset-0">
-
+        <div 
+        id="overlay" 
+        class="hidden w-screen h-screen bg-black/80 fixed inset-0">
         </div>
         <!-- Modal -->
         <div 
             id="modal"
-            class="hidden fixed w-full rounded-xl sm:w-[40%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+            class="fixed w-4/5 md:w-3/5 lg:w-2/5 xl:w-1/5 rounded-xl left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             <div class="w-full flex flex-col items-center justify-between px-4 pb-6 bg-zinc-800 rounded-t-xl">
-                <div id="fechar" class="w-[95%] text-end text-xl font-bold cursor-pointer">
+                <div 
+                id="close" 
+                class="w-[95%] text-end text-4xl lg:text-xl font-bold cursor-pointer">
                     X
                 </div>
                 <div class="text-2xl font-bold">
                     ENVIAR VALE
                 </div>
             </div>
-            <form class="w-full px-4 pb-6 bg-zinc-800 rounded-b-xl">
+            <form 
+            name="modal-form"
+            class="w-full px-4 pb-6 bg-zinc-800 rounded-b-xl">
                 <label for="name"></label>
                 <input 
                 id="name"
@@ -69,25 +107,96 @@
                 placeholder="Digite seu nome">
                 <div class="flex py-5 items-center">
                     <div class="border-4 border-zinc-500 rounded-md">
-                        <input class="w-6 h-6 border-4 rounded-md accent-lime-400" type="checkbox" id="pix" name="pix" value="pix" checked>
+                        <input 
+                        class="w-6 h-6 border-4 rounded-md accent-lime-400" 
+                        type="checkbox" 
+                        id="pix" 
+                        name="pix" 
+                        value="pix" 
+                        checked>
                     </div>
-                    <label class="w-full mx-4" for="pix">PIX</label>
+                    <label 
+                    class="w-full mx-4" 
+                    for="pix">
+                        PIX
+                    </label>
                 </div>
                 <div class="flex py-2 items-center">
                     <div class="border-4 border-zinc-500 rounded-md">
-                        <input class="w-6 h-6 border-4 rounded-md accent-lime-400" type="checkbox" id="transf" name="transf" value="transf">
+                        <input 
+                        class="w-6 h-6 border-4 rounded-md accent-lime-400" 
+                        type="checkbox" 
+                        id="transf" 
+                        name="transf" 
+                        value="transf">
                     </div>
-                    <label class="w-full mx-4" for="transf">Transferência</label>
+                    <label 
+                    class="w-full mx-4" 
+                    for="transf">
+                        Transferência
+                    </label>
                 </div>
             </form>
             <button 
-                name=""
-                id="confirm"
-                class="w-full bg-zinc-800 border-4 rounded-xl border-lime-700 hover:bg-lime-900 px-4 py-2 text-lg font-bold hover:scale-[1.05]"
-                >
+            name=""
+            id="confirm"
+            class="w-full bg-zinc-800 border-4 rounded-xl border-lime-700 hover:bg-lime-900 px-4 py-2 text-lg font-bold hover:scale-[1.05]">
                 CONFIRMAR
             </button>
             
+        </div>
+        <!-- Success alert  -->
+        <div 
+        id="toast-success" 
+        class="hidden fixed left-1/2 top-3/4 -translate-x-1/2 -translate-y-1/2 items-center justify-between w-4/5 p-4 mb-4 text-gray-500 bg-green-200 rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" 
+        role="alert">
+            <div class="inline-flex items-center justify-center flex-shrink-0 w-16 h-16 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
+                <svg 
+                    aria-hidden="true" class="w-14 h-14" 
+                    fill="currentColor" viewBox="0 0 20 20" 
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path 
+                        fill-rule="evenodd" 
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" 
+                        clip-rule="evenodd">
+                    </path>
+                </svg>
+                <span class="sr-only">Check icon</span>
+            </div>
+            <div class="text-4xl font-semibold text-center text-lime-900">Vale selecionado com sucesso. </div>
+            <div id="close-toast" class="inline-flex items-center justify-center flex-shrink-0 w-16 h-16 text-zinc-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
+                <svg id="close-toast" aria-hidden="true" class="w-14 h-14" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="sr-only">Check icon</span>
+            </div>
+
+        </div>
+        <!-- Warning alert  -->
+        <div 
+        id="toast-warning" 
+        class="hidden fixed left-1/2 top-3/4 -translate-x-1/2 -translate-y-1/2 items-center justify-between w-4/5 p-4 text-gray-500 bg-orange-300 rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
+            <div class="inline-flex items-center justify-center flex-shrink-0 w-16 h-16 text-orange-500 bg-orange-100 rounded-lg dark:bg-orange-700 dark:text-orange-200">
+                <svg aria-hidden="true" class="w-14 h-14" 
+                    fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path 
+                        fill-rule="evenodd"
+                        d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                        clip-rule="evenodd">
+                    </path>
+                </svg>
+                <span class="sr-only">Warning icon</span>
+            </div>
+            <div 
+            id="toast-warning-text" 
+            class="text-4xl font-semibold text-center text-orange-900">Por favor, escolha uma forma de pagamento.</div>
+            <div id="close-toast" class="inline-flex items-center justify-center flex-shrink-0 w-16 h-16 text-zinc-500 bg-orange-100 rounded-lg dark:bg-green-800 dark:text-green-200">
+                <svg id="close-toast" aria-hidden="true" class="w-14 h-14" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="sr-only">Check icon</span>
+            </div>
         </div>
     </div>
     </body>
@@ -107,18 +216,6 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app)
 
-    // let filter
-    // const q = query(collection(db, '<nome da tabela>'), where('chave','==',{filter}))
-    // getDocs(q)
-    
-    // getDoc(doc(db, 'gifts', elementId)).then(docSnap =>{
-    //     if(docSnap.exists()) {
-    //         console.log(docSnap.data())
-    //     } else {
-    //         console.log('No data')
-    //     }
-    // })
-    
     function putAllCardsFromDb() {
         getDocs(collection(db, 'gifts')).then(docSnap => {
             let gifts = []
@@ -134,38 +231,65 @@
         })
     }
 
-    function sendGifter() {
+    function sendGifterToDb() {
         let payWays = []
         const gifter = document.getElementById("name").value
-        if (document.querySelector('[name="pix"]:checked')) {
-            payWays.push(document.querySelector('[name="pix"]:checked').value.toLowerCase())
-        }
-        if (document.querySelector('[name="transf"]:checked')) {
-            payWays.push(document.querySelector('[name="transf"]:checked').value)
-        }
-        if (payWays.length > 0) {
-            updateDoc(db, 'gifts', document.getElementById("confirm").name), {
-                gifter: gifter,
-                payWays: payWays
+        if (gifter != '') {
+            if (document.querySelector('[name="pix"]:checked')) {
+                payWays.push(document.querySelector('[name="pix"]:checked').value.toLowerCase())
             }
-            alert('Entre em contato com Fayla ou com Danilo')
+            if (document.querySelector('[name="transf"]:checked')) {
+                payWays.push(document.querySelector('[name="transf"]:checked').value)
+            }
+            if (payWays.length > 0) {
+                const name = document.getElementById("confirm").name
+                // updateDoc(doc(db, 'gifts', name), {
+                //     gifter: gifter,
+                //     payWays: payWays
+                // })
+                document.getElementsByName("modal-form")[0].reset()
+                document.getElementById('toast-warning').classList.add("hidden")
+                document.getElementById('toast-success').classList.remove("hidden")
+                document.getElementById('toast-success').classList.add("flex")
+    
+            } else {
+                const warning = document.getElementById('toast-warning')
+                document.getElementById('toast-warning-text').innerHTML = 'Por favor, escolha uma forma de pagamento.'
+                warning.classList.remove("hidden")
+                warning.classList.add("flex")
+            }
+            // payment.push(document.querySelector('[name="payment"]:checked'))
         } else {
-            alert('Por favor, escolha uma forma de pagamento')
+            const warning = document.getElementById('toast-warning')
+            document.getElementById('toast-warning-text').innerHTML = 'Por favor, indique o seu nome'
+            warning.classList.remove("hidden")
+            warning.classList.add("flex")
         }
-        // payment.push(document.querySelector('[name="payment"]:checked'))
+    }
+
+    function cleanFormInputsByName(form) {
+        const aForm = document.forms["modal-form"].getElementsByTagName("inputs")
+        let inp=0
+        while (aForm.length) {
+            aForm[0].remove()
+
+            inp++
+        }
     }
 
     document.addEventListener('click', (e) => {
         let elementId = e.target.id;
+        console.log('id: ',elementId)
         if (elementId.length == 20) {
             document.getElementById("modal").classList.remove("hidden")
             document.getElementById('overlay').classList.remove("hidden")
             document.getElementById("confirm").name = elementId
         } else if (elementId == "confirm") {
-            sendGifter()
-        } else if (["fechar", "overlay"].includes(elementId)){
+            sendGifterToDb()
+        } else if (["close", "overlay"].includes(elementId)){
             document.getElementById("modal").classList.add("hidden")
             document.getElementById('overlay').classList.add("hidden")
+            document.getElementById('nav-menu').classList.add("hidden")
             document.getElementById("confirm").name = ''
         } else if (["Cozinha", "Sala", "Quarto"].includes(elementId)) {
             const q = query(collection(db, 'gifts'), where('category','==', elementId))
@@ -184,7 +308,46 @@
             })
         } else if (elementId == "Tudo") {
             putAllCardsFromDb()
+        } else if (elementId == "search") {
+            console.log('inicio')
+            const target_value = document.getElementById("search-entry").value
+            if (target_value != '') {
+                const q = query(collection(db, 'gifts'), where('description', 'array-contains', target_value))
+                console.log('valor digitado: ', target_value)
+                getDocs(collection(db, 'gifts')).then(docSnap => {
+                    let allGifts = []
+                    docSnap.forEach((gift) => {
+                        allGifts.push({ ...gift.data(), id: gift.id})
+                    })
+                let gifts = []
+                allGifts.forEach((item) => {
+                    if (item.name.toLowerCase().includes(target_value.toLowerCase())) {
+                        gifts.push(item)
+                    }
+                })
+                document.getElementById("card-space").innerHTML = ''
+                const contentDiv = document.getElementById("card-space")
+                gifts.forEach(dataItem => {
+                    let element = document.createElement('div');
+                    element.innerHTML = createCard(dataItem);
+                    contentDiv.appendChild(element);
+                })
+                })
+            } else {
+                console.log('Entrada inválida')
+            }
+        } else if (elementId == 'menu') {
+            document.getElementById('overlay').classList.remove("hidden")
+            document.getElementById('nav-menu').classList.remove("hidden")
+            document.getElementById('nav-menu').classList.add("flex")
+            console.log(document.getElementById('nav-menu').classList)
+        } else if (elementId == 'close-toast') {
+            document.getElementById('toast-success').classList.add("hidden")
+            document.getElementById('toast-success').classList.remove("flex")
+            document.getElementById('toast-warning').classList.add("hidden")
+            document.getElementById('toast-warning').classList.remove("flex")
         }
+        
     })
 
     function createCard(item) {
@@ -223,5 +386,5 @@
             </div>`
         )
     }
-    putAllCardsFromDb()       
+    // putAllCardsFromDb()     
   </script>
