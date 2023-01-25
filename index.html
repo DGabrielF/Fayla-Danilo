@@ -21,7 +21,7 @@
                 id="menu" 
                 class="[&>*]:stroke-lime-400 cursor-pointer" 
                 xmlns="http://www.w3.org/2000/svg" 
-                width="35" height="35" 
+                width="50" height="50" 
                 fill="#000000" viewBox="0 0 256 256">
                     <line id="menu" x1="40" y1="64" x2="216" y2="64" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
                     <line id="menu" x1="40" y1="128" x2="216" y2="128" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
@@ -45,20 +45,20 @@
                     id="search" 
                     class="[&>*]:stroke-lime-400" 
                     xmlns="http://www.w3.org/2000/svg" 
-                    width="30" height="30" 
+                    width="35" height="35" 
                     fill="#000000" viewBox="0 0 256 256">
                     <circle id="search" cx="116" cy="116" r="84" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></circle>
                     <line id="search" x1="175.4" y1="175.4" x2="224" y2="224" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
                     </svg>
                     <span 
                     id="search" 
-                    class="hidden md:block">
+                    class="hidden md:block text-4xl lg:text-2xl">
                         BUSCAR
                     </span>
                 </div>
                 <input 
                 id="search-entry" 
-                class="w-full border-4 rounded-xl px-4 border-lime-800 hover:bg-lime-50 focus:bg-lime-50 font-black hover:font-black focus:font-black items-center"
+                class="w-full text-4xl lg:text-2xl border-4 rounded-xl px-4 border-lime-800 hover:bg-lime-50 focus:bg-lime-50 font-black hover:font-black focus:font-black items-center"
                 type="text"
                 placeholder="Buscar por presente">
             </div>
@@ -85,14 +85,14 @@
         <!-- Modal -->
         <div 
             id="modal"
-            class="fixed w-4/5 md:w-3/5 lg:w-2/5 xl:w-1/5 rounded-xl left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+            class="hidden fixed w-4/5 md:w-3/5 lg:w-2/5 xl:w-1/5 rounded-xl left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             <div class="w-full flex flex-col items-center justify-between px-4 pb-6 bg-zinc-800 rounded-t-xl">
                 <div 
                 id="close" 
                 class="w-[95%] text-end text-4xl lg:text-xl font-bold cursor-pointer">
                     X
                 </div>
-                <div class="text-2xl font-bold">
+                <div class="text-5xl lg:text-3xl font-extrabold">
                     ENVIAR VALE
                 </div>
             </div>
@@ -102,7 +102,7 @@
                 <label for="name"></label>
                 <input 
                 id="name"
-                class="w-full border-4 py-2 rounded-xl border-zinc-500 hover:bg-lime-100 focus:bg-lime-100 px-4 font-black"
+                class="w-full border-4 py-2 rounded-xl border-zinc-500 hover:bg-lime-100 focus:bg-lime-100 px-4 font-black text-4xl lg:text-lg"
                 type="text"
                 placeholder="Digite seu nome">
                 <div class="flex py-5 items-center">
@@ -116,7 +116,7 @@
                         checked>
                     </div>
                     <label 
-                    class="w-full mx-4" 
+                    class="w-full mx-4 text-4xl lg:text-lg" 
                     for="pix">
                         PIX
                     </label>
@@ -131,7 +131,7 @@
                         value="transf">
                     </div>
                     <label 
-                    class="w-full mx-4" 
+                    class="w-full mx-4 text-4xl lg:text-lg" 
                     for="transf">
                         Transferência
                     </label>
@@ -140,7 +140,7 @@
             <button 
             name=""
             id="confirm"
-            class="w-full bg-zinc-800 border-4 rounded-xl border-lime-700 hover:bg-lime-900 px-4 py-2 text-lg font-bold hover:scale-[1.05]">
+            class="w-full bg-zinc-800 border-4 rounded-xl border-lime-700 hover:bg-lime-900 px-4 py-2 text-4xl lg:text-2xl font-bold hover:scale-[1.05]">
                 CONFIRMAR
             </button>
             
@@ -358,7 +358,7 @@
         return(            
             `<div class="w-full h-full font-medium text-lime-100 font flex flex-col items-center justify-end rounded-xl gap-1">
                 <div class="w-full h-full bg-zinc-800 border-4 border-lime-700 rounded-2xl hover:scale-[1.02] flex flex-col justify-between">
-                    <div class="bg-zinc-800 w-full rounded-t-xl text-center font-extrabold text-xl flex justify-center items-center gap-3 py-2">
+                    <div class="bg-zinc-800 w-full rounded-t-xl text-center text-4xl lg:text-2xl font-extrabold flex justify-center items-center gap-3 py-2">
                         <svg class="[&>*]:stroke-lime-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000000" viewBox="0 0 256 256">
                             <rect x="32" y="80" width="192" height="48" rx="8" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></rect>
                             <path d="M208,128v72a8,8,0,0,1-8,8H56a8,8,0,0,1-8-8V128" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
@@ -371,16 +371,16 @@
                     <div class="bg-zinc-800 w-full">
                         <img class="w-full h-full object-cover rounded-lg" src= ${item.image} alt= ${item.name}></img>
                     </div>
-                    <div class="bg-zinc-800 w-full text-center text-base">
+                    <div class="bg-zinc-800 w-full text-center text-3xl lg:text-xl">
                         ${item.description}
                     </div>
-                    <div class="bg-zinc-800 w-full rounded-b-xl text-center font-semibold text-lg">
+                    <div class="bg-zinc-800 w-full rounded-b-xl text-center font-semibold text-4xl lg:text-2xl">
                         R$ ${item.price}
                     </div>
                 </div>
                 <button 
                     id="${item.id}"
-                    class="item-button bg-lime-700 hover:bg-lime-900 w-full border-4 border-lime-800 hover:border-lime-600 rounded-xl text-xl font-extrabold hover:scale-[1.05]"
+                    class="item-button bg-lime-700 hover:bg-lime-900 w-full border-4 border-lime-800 hover:border-lime-600 rounded-xl text-4xl lg:text-2xl font-extrabold hover:scale-[1.05]"
                     >PRESENTEAR
                 </button></div>
             </div>`
