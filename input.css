@@ -4,6 +4,6 @@
 
 @layer utilities {
     .filter-buttons {
-        @apply w-[95%] mx-auto bg-zinc-900 hover:bg-lime-900 border-4 border-lime-800 hover:border-lime-600 rounded-xl hover:scale-[1.02] text-4xl lg:text-2xl
+        @apply w-[80%] mx-auto py-6 my-3 bg-zinc-900 hover:bg-lime-900 border-4 border-lime-800 hover:border-lime-600 rounded-xl hover:scale-[1.02] text-4xl lg:text-2xl font-semibold
     }
 }

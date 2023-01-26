@@ -8,14 +8,14 @@
     <!-- Background -->
     <div class="w-full h-full text-lime-200 flex flex-col">
         <!-- Hero -->
-        <div class="max-h-[300px] relative">
+        <div class="max-h-[300px] relative py-2">
             <!-- <div class="absolute w-full h-full text-gray-200 max-h-[500px] bg-black/30 flex flex-col justify-end items-start">
                 <img class="max-h-[100px] object-cover" src="transparent-names.png" alt="Fayla e Danilo">
                 <h1 class="text-green-600 w-56 text-left px-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font bold">Fayla</h1>
                 <h1 class="text-slate-100 w-56 text-center px-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font bold">&</h1>
                 <h1 class="text-green-600 w-56 text-right px-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font bold">Danilo</h1>
             </div> -->
-            <img class="w-4/5 pt-2 max-h-[300px] object-cover m-auto rounded-3xl" src="./assets/hero.jpeg" alt="O casal que mais se ama no mundo, Os Bezudos">
+            <img class="max-h-[300px] object-cover m-auto rounded-3xl" src="./assets/hero.jpeg" alt="O casal que mais se ama no mundo, Os Bezudos">
         </div>
         <!-- Navbar -->
         <div class="w-[98%] flex items-center justify-between my-4 mx-auto">
@@ -71,7 +71,7 @@
         <!-- Side Bar -->
         <div
         id="nav-menu"
-        class="hidden z-10 flex-col gap-2">
+        class="hidden z-10 flex-col gap-2 bg-black">
             <button id="Tudo" class="filter-buttons">Tudo</button>
             <button id="Cozinha" class="filter-buttons">Cozinha</button>
             <button id="Quarto" class="filter-buttons">Quarto</button>
@@ -80,7 +80,7 @@
         <!-- Área dos cards -->
         <div
             id ="card-space"
-            class="w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6 p-4 items-start mx-auto">
+            class="w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8 p-4 items-start mx-auto">
         </div>
         <!-- Overlay -->
         <div 
@@ -90,8 +90,8 @@
         <!-- Modal -->
         <div 
             id="modal"
-            class="hidden fixed w-4/5 md:w-3/5 lg:w-2/5 xl:w-1/5 rounded-xl left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <div class="w-full flex flex-col items-center justify-between px-4 pb-6 bg-zinc-800 rounded-t-xl">
+            class="hidden fixed w-4/5 md:w-5/6 lg:w-2/5 xl:w-1/5 rounded-xl left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+            <div class="w-full flex flex-col items-center justify-between px-8 pb-6 bg-zinc-800 rounded-t-xl">
                 <div 
                 id="close" 
                 class="w-[95%] text-end text-4xl lg:text-xl font-bold cursor-pointer">
@@ -103,7 +103,7 @@
             </div>
             <form 
             name="modal-form"
-            class="w-full px-4 pb-6 bg-zinc-800 rounded-b-xl">
+            class="w-full px-8 pb-6 bg-zinc-800 rounded-b-xl">
                 <label for="name"></label>
                 <input 
                 id="name"
@@ -141,14 +141,19 @@
                         Transferência
                     </label>
                 </div>
+                <div class="text-orange-500 bg-orange-500/5 text-center py-4 px-8 mt-6 rounded-2xl">
+                    <span>
+                        Após confirmar o vale só envie o valor após a confirmação com um dos noivos, Fayla ou Danilo.
+                    </span>
+
+                </div>
             </form>
             <button 
             name=""
             id="confirm"
-            class="w-full bg-zinc-800 border-4 rounded-xl border-lime-700 hover:bg-lime-900 px-4 py-2 text-4xl lg:text-2xl font-bold hover:scale-[1.05]">
+            class="w-full bg-zinc-800 border-4 rounded-xl border-lime-700 hover:bg-lime-900 px-4 py-6 text-4xl lg:text-2xl font-bold hover:scale-[1.05]">
                 CONFIRMAR
             </button>
-            
         </div>
         <!-- Success alert  -->
         <div 
@@ -295,6 +300,8 @@
             document.getElementById("modal").classList.add("hidden")
             document.getElementById('overlay').classList.add("hidden")
             document.getElementById('nav-menu').classList.add("hidden")
+            document.getElementById('toast-warning').classList.add("hidden")
+            document.getElementById('toast-success').classList.add("hidden")
             document.getElementById("confirm").name = ''
         } else if (["Cozinha", "Sala", "Quarto"].includes(elementId)) {
             document.getElementById('overlay').classList.add("hidden")
@@ -355,8 +362,13 @@
             document.getElementById('toast-success').classList.remove("flex")
             document.getElementById('toast-warning').classList.add("hidden")
             document.getElementById('toast-warning').classList.remove("flex")
-        }
-        
+        } else if (elementId == 'button-disabled') {
+            const warning = document.getElementById('toast-warning')
+            document.getElementById('toast-warning-text').innerHTML = 'Este vale já foi selecionado.<br/> Vamos tentar outro?'
+            warning.classList.remove("hidden")
+            warning.classList.add("flex")
+            document.getElementById('overlay').classList.remove("hidden")
+        } 
     })
 
     function createCard(item) {
@@ -391,9 +403,8 @@
         if (item.gifter != 'NULL') {
             cardString += 
                 `<button 
-                    id="${item.id}"
-                    class="item-button bg-lime-700 hover:bg-lime-900 w-full border-4 border-lime-800 hover:border-lime-600 rounded-xl text-4xl lg:text-2xl font-extrabold hover:scale-[1.05]"
-                    disabled
+                    id="button-disabled"
+                    class="item-button bg-zinc-900 w-full border-4 border-lime-800 hover:border-lime-600 rounded-xl text-4xl lg:text-2xl font-extrabold hover:scale-[1.05] py-4"
                     >PRESENTEAR
                 </button></div>
             </div>`
@@ -401,10 +412,9 @@
             cardString += `
                 <button 
                     id="${item.id}"
-                    class="item-button bg-lime-700 hover:bg-lime-900 w-full border-4 border-lime-800 hover:border-lime-600 rounded-xl text-4xl lg:text-2xl font-extrabold hover:scale-[1.05]" 
+                    class="item-button bg-lime-700 hover:bg-lime-900 w-full border-4 border-lime-800 hover:border-lime-600 rounded-xl text-4xl lg:text-2xl font-extrabold hover:scale-[1.05] py-4" 
                     >PRESENTEAR
                 </button></div>
-                }
             </div>`
         }
         return cardString
