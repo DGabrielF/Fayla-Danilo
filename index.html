@@ -4,19 +4,23 @@
         <title>Fayla & Danilo</title>
         <link rel="stylesheet" href="style.css" />
     </head>
-    <body class="bg-zinc-900 text-2xl lg:text-lg xl:text-base">
-    <!-- Background -->
-    <div class="w-full h-full text-lime-200 flex flex-col">
-        <!-- Hero -->
-        <div class="max-h-[300px] relative py-2">
+    <body class="bg-zinc-900">
+        <div class="max-h-[320px] overflow-auto mx-auto relative my-8 flex-nowrap flex items-center justify-center gap-2">
             <!-- <div class="absolute w-full h-full text-gray-200 max-h-[500px] bg-black/30 flex flex-col justify-end items-start">
                 <img class="max-h-[100px] object-cover" src="transparent-names.png" alt="Fayla e Danilo">
                 <h1 class="text-green-600 w-56 text-left px-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font bold">Fayla</h1>
                 <h1 class="text-slate-100 w-56 text-center px-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font bold">&</h1>
                 <h1 class="text-green-600 w-56 text-right px-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font bold">Danilo</h1>
             </div> -->
+            <img class="max-h-[300px] object-cover m-auto rounded-3xl" src="./assets/hero1.jpeg" alt="O casal que mais se ama no mundo, Os Bezudos">
+            <img class="max-h-[300px] object-cover m-auto rounded-3xl" src="./assets/hero2.jpeg" alt="O casal que mais se ama no mundo, Os Bezudos">
             <img class="max-h-[300px] object-cover m-auto rounded-3xl" src="./assets/hero.jpeg" alt="O casal que mais se ama no mundo, Os Bezudos">
+            <img class="max-h-[300px] object-cover m-auto rounded-3xl" src="./assets/hero3.jpeg" alt="O casal que mais se ama no mundo, Os Bezudos">
+            <img class="max-h-[300px] object-cover m-auto rounded-3xl" src="./assets/hero4.jpeg" alt="O casal que mais se ama no mundo, Os Bezudos">
         </div>
+    <!-- Background -->
+    <div class="w-full h-full text-lime-200 flex flex-col text-2xl lg:text-lg xl:text-base mt-8">
+        <!-- Hero -->
         <!-- Navbar -->
         <div class="w-[98%] flex items-center justify-between my-4 mx-auto">
             <!-- Hamburguer menu -->
@@ -68,16 +72,19 @@
                 placeholder="Buscar por presente">
             </div>
         </div>
-        <!-- Side Bar -->
+        <!-- Sidebar -->
         <div
         id="nav-menu"
-        class="hidden z-10 flex-col gap-2 bg-black">
+        class="hidden z-10 flex-col gap-2">
             <button id="Tudo" class="filter-buttons">Tudo</button>
             <button id="Cozinha" class="filter-buttons">Cozinha</button>
             <button id="Quarto" class="filter-buttons">Quarto</button>
             <button id="Sala" class="filter-buttons">Sala</button>
+            <div class="bg-lime-700 w-4/5 h-2 mt-12 mb-6 rounded-full mx-auto"></div>
+            <button id="informacoes" class="filter-buttons">Informações</button>
+            <button id="instrucoes" class="filter-buttons">Instruções</button>
         </div>
-        <!-- Área dos cards -->
+        <!-- Card Area -->
         <div
             id ="card-space"
             class="w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8 p-4 items-start mx-auto">
@@ -208,6 +215,68 @@
                 <span class="sr-only">Check icon</span>
             </div>
         </div>
+        <!-- Information -->
+        <div 
+        id="information"
+        class="hidden w-[90%] fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center flex-col gap-8 border-8 border-lime-800 p-12 rounded-3xl bg-zinc-900">
+            <div 
+            class="flex justify-end text-4xl lg:text-xl font-bold">
+                <div
+                id="close"
+                class="cursor-pointer">
+                    <svg id="close" aria-hidden="true" class="w-14 h-14" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path 
+                    fill-rule="evenodd" 
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" 
+                        clip-rule="evenodd">
+                    </path>
+                    </svg>
+                </div>
+            </div>
+            <span class="text-5xl font-extrabold mx-auto">QUANDO</span>
+            <span class="text-4xl font-bold">11 de Fevereiro de 2023 </span>
+            <span class="text-4xl font-bold">Sábado, às 16 horas.</span>
+            <span class="text-5xl font-extrabold mt-12 mx-auto">ONDE</span>
+            <span class="text-4xl font-extrabold">Sítio Império</span>
+            <span class="text-4xl font-bold mb-6 leading-10">na saída de 
+                <span class="text-4xl font-extrabold">Guanambi</span>
+                para Candiba, <br/> antes do parque aquático.
+            </span>
+        </div>
+        <!-- Instructions -->
+        <div 
+        id="instruction"
+        class="hidden w-[90%] fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center flex-col gap-8 border-8 border-lime-800 p-12 rounded-3xl bg-zinc-900">
+            <div 
+            class="flex justify-end text-4xl lg:text-xl font-bold">
+                <div
+                id="close"
+                class="cursor-pointer">
+                    <svg id="close" aria-hidden="true" class="w-14 h-14" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path 
+                    fill-rule="evenodd" 
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" 
+                        clip-rule="evenodd">
+                    </path>
+                    </svg>
+                </div>
+            </div>
+            <span class="text-5xl font-extrabold mx-auto">Navegação</span>
+            <span class="text-4xl font-bold">Menu de navegação:<br/>Apresentar opções de filtrar os cartões de vales por categoria, informações e instruções</span>
+            <span class="text-4xl font-bold">Botões de navegação:<br/>Filtrar os cartões de vales por categoria</span>
+            <span class="text-4xl font-bold">Campo de busca:<br/>Buscar cartões de vales buscando por um nome</span>
+
+            <span class="text-5xl font-extrabold mx-auto">Cartões de presente</span>
+            <span class="text-4xl font-bold">Botão de presentear:<br/>Ir para o formulário de preenchimento e confirmar o vale</span>
+            <span class="text-4xl font-bold">Preeenchendo o nome:<br/>Para identificar quem está enviando o vale</span>
+            <span class="text-4xl font-bold">Formas de pagamento:<br/>Para podermos informar os dados necessários para o envio do vale</span>
+            <span class="text-4xl font-bold">Alertas:<br/>Informar sobre impossibilidades ou conclusão de ações
+            </span>
+
+            <span class="text-5xl font-extrabold mx-auto">Mais informações</span>
+            <span class="text-4xl font-bold">Segurança:<br/>Os dados serão passados diretamente para vocês</span>
+            <span class="text-4xl font-bold">Contato:<br/>Com certeza você tem um dos nossos contatos</span>
+        </div>
     </div>
     </body>
 </html>
@@ -302,6 +371,8 @@
             document.getElementById('nav-menu').classList.add("hidden")
             document.getElementById('toast-warning').classList.add("hidden")
             document.getElementById('toast-success').classList.add("hidden")
+            document.getElementById('information').classList.add("hidden")
+            document.getElementById('instruction').classList.add("hidden")
             document.getElementById("confirm").name = ''
         } else if (["Cozinha", "Sala", "Quarto"].includes(elementId)) {
             document.getElementById('overlay').classList.add("hidden")
@@ -368,7 +439,17 @@
             warning.classList.remove("hidden")
             warning.classList.add("flex")
             document.getElementById('overlay').classList.remove("hidden")
-        } 
+        }  else if (elementId == 'informacoes') {
+            document.getElementById('overlay').classList.remove("hidden")
+            document.getElementById('nav-menu').classList.add("hidden")
+            document.getElementById('information').classList.remove("hidden")
+            document.getElementById('information').classList.add("flex")
+        } else if (elementId == 'instrucoes') {
+            document.getElementById('overlay').classList.remove("hidden")
+            document.getElementById('nav-menu').classList.add("hidden")
+            document.getElementById('instruction').classList.remove("hidden")
+            document.getElementById('instruction').classList.add("flex")
+        }
     })
 
     function createCard(item) {
