@@ -6,6 +6,14 @@
     .filter-buttons {
         @apply w-[80%] mx-auto py-6 my-3 bg-zinc-900 hover:bg-lime-900 border-4 border-lime-800 hover:border-lime-600 rounded-xl hover:scale-[1.02] text-4xl lg:text-2xl font-semibold
     }
+
+    .input-entry {
+        @apply w-full text-4xl lg:text-2xl rounded-xl px-4 py-6 text-zinc-900 border-4 border-lime-800 hover:bg-lime-50 focus:bg-lime-50
+    }
+
+    .overlar {
+        @apply hidden w-screen h-screen bg-black/80 fixed inset-0
+    }
     /* width */
     ::-webkit-scrollbar {
         width: 10px;

@@ -46,7 +46,7 @@
                 class="flex items-center justify-end gap-3 font-bold cursor-pointer">
                     <svg 
                     id="search" 
-                    class="[&>*]:stroke-lime-400" 
+                    class="[&>*]:stroke-lime-400 " 
                     xmlns="http://www.w3.org/2000/svg" 
                     width="35" height="35" 
                     fill="#000000" viewBox="0 0 256 256">
@@ -61,10 +61,15 @@
                 </div>
                 <input 
                 id="search-entry" 
-                class="w-full text-4xl lg:text-2xl border-4 rounded-xl px-4 py-6 border-lime-800 hover:bg-lime-50 focus:bg-lime-50 font-black hover:font-black focus:font-black items-center"
+                class="input-entry"
                 type="text"
                 placeholder="Buscar por presente">
             </div>
+        </div>
+        <!-- Overlay Sidebar  -->
+        <div 
+        id="overlay-sidebar" 
+        class="hidden w-screen h-screen bg-black/80 fixed inset-0">
         </div>
         <!-- Sidebar -->
         <div
@@ -112,7 +117,7 @@
                 <label for="name"></label>
                 <input 
                 id="name"
-                class="w-full border-4 py-2 rounded-xl border-zinc-500 hover:bg-lime-100 focus:bg-lime-100 px-4 font-black text-4xl"
+                class="input-entry"
                 type="text"
                 placeholder="Digite seu nome">
                 <div class="flex py-5 items-center">
@@ -178,7 +183,7 @@
                 </svg>
                 <span class="sr-only">Check icon</span>
             </div>
-            <div class="text-4xl font-semibold text-center text-lime-900">Vale selecionado com sucesso. </div>
+            <div class="text-4xl font-semibold text-center text-lime-900">Vale selecionado com sucesso. Contate os noivos.</div>
             <div id="close-toast" class="inline-flex items-center justify-center flex-shrink-0 w-16 h-16 text-zinc-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
                 <svg id="close-toast" aria-hidden="true" class="w-14 h-14" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -359,6 +364,14 @@
         }
     }
 
+    function unhideElements(elementArrey){
+        elementArrey.forEach((element) => document.getElementById(element).classList.remove("hidden"))
+    }
+
+    function hideElements(elementArrey){
+        elementArrey.forEach((element) => {document.getElementById(element).classList.add("hidden")})
+    }
+
     function cleanFormInputsByName(form) {
         const aForm = document.forms["modal-form"].getElementsByTagName("inputs")
         let inp=0
@@ -381,25 +394,18 @@
 
     document.addEventListener('click', (e) => {
         let elementId = e.target.id;
+        console.log(elementId)
         if (elementId.length == 20) {
-            document.getElementById("modal").classList.remove("hidden")
-            document.getElementById('overlay').classList.remove("hidden")
+            unhideElements(['modal','overlay'])
             document.getElementById("confirm").name = elementId
         } else if (elementId == "confirm") {
             sendGifterToDb()
         } else if (["close", "overlay"].includes(elementId)){
-            document.getElementById("modal").classList.add("hidden")
-            document.getElementById('overlay').classList.add("hidden")
-            document.getElementById('nav-menu').classList.add("hidden")
-            document.getElementById('toast-warning').classList.add("hidden")
-            document.getElementById('toast-success').classList.add("hidden")
-            document.getElementById('information').classList.add("hidden")
-            document.getElementById('instruction').classList.add("hidden")
+            hideElements(["modal", "overlay","nav-menu","toast-warning","toast-success","information","instruction"])
             document.getElementById("confirm").name = ''
             document.location.reload()
         } else if (["Cozinha", "Sala", "Quarto"].includes(elementId)) {
-            document.getElementById('overlay').classList.add("hidden")
-            document.getElementById('nav-menu').classList.add("hidden")
+            hideElements(["overlay-sidebar","nav-menu"])
             const q = query(collection(db, 'gifts'), where('category','==', elementId))
             getDocs(q).then(docSnap => {
                 let gifts = []
@@ -409,9 +415,8 @@
                 document.getElementById("card-space").innerHTML = ''
                 putInactiveCardsToTheEnd(gifts, "card-space")
             })
-        } else if (elementId == "Tudo") {
-            document.getElementById('overlay').classList.add("hidden")
-            document.getElementById('nav-menu').classList.add("hidden")
+        } else if (elementId == 'Tudo') {
+            hideElements(['overlay-sidebar','nav-menu'])
             putAllCardsFromDb()
         } else if (elementId == "search") {
             const target_value = document.getElementById("search-entry").value
@@ -431,37 +436,26 @@
                 document.getElementById("card-space").innerHTML = ''
                 putInactiveCardsToTheEnd(gifts, "card-space")
                 })
-            } else {
-                console.log('Entrada inválida')
             }
         } else if (elementId == 'menu') {
-            document.getElementById('overlay').classList.remove("hidden")
-            document.getElementById('nav-menu').classList.remove("hidden")
+            unhideElements(['overlay-sidebar','nav-menu'])
             document.getElementById('nav-menu').classList.add("flex")
+        } else if (elementId == 'overlay-sidebar'){
+            hideElements(['overlay-sidebar','nav-menu','information','instruction'])
         } else if (elementId == 'close-toast') {
-            document.getElementById('overlay').classList.add("hidden")
-            document.getElementById('toast-success').classList.add("hidden")
-            document.getElementById('toast-success').classList.remove("flex")
-            document.getElementById('toast-warning').classList.add("hidden")
-            document.getElementById('toast-warning').classList.remove("flex")
+            hideElements(['overlay-sidebar','toast-success','toast-warning'])
         }  else if (elementId == 'informacoes') {
-            document.getElementById('overlay').classList.remove("hidden")
-            document.getElementById('nav-menu').classList.add("hidden")
-            document.getElementById('information').classList.remove("hidden")
+            unhideElements(['overlay-sidebar','information'])
+            hideElements(['nav-menu'])
             document.getElementById('information').classList.add("flex")
         } else if (elementId == 'instrucoes') {
-            document.getElementById('overlay').classList.remove("hidden")
-            document.getElementById('nav-menu').classList.add("hidden")
-            document.getElementById('instruction').classList.remove("hidden")
+            unhideElements(['overlay-sidebar','instruction'])
+            hideElements(['nav-menu'])
             document.getElementById('instruction').classList.add("flex")
         }
     })
 
     function createCard(item) {
-        const id = item.id
-        const image = item.image
-        const name = item.name
-        const description = item.description
         let cardString = 
             `<div class="w-full h-full font-medium text-lime-100 font flex flex-col items-center justify-end rounded-xl gap-1">
                 <div class="w-full h-full bg-zinc-800 border-4 border-lime-700 rounded-2xl hover:scale-[1.02] flex flex-col justify-between">
@@ -560,8 +554,8 @@
         })
     }
     
-    // cleanAllCardsFromDb()
+    cleanAllCardsFromDb()
     putPhotosInHero()
     createStyleForHero()
-    putAllCardsFromDb()     
+    // putAllCardsFromDb()     
   </script>
