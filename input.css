@@ -6,4 +6,27 @@
     .filter-buttons {
         @apply w-[80%] mx-auto py-6 my-3 bg-zinc-900 hover:bg-lime-900 border-4 border-lime-800 hover:border-lime-600 rounded-xl hover:scale-[1.02] text-4xl lg:text-2xl font-semibold
     }
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 2px;
+    }
+    
+    /* Track */
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey; 
+        border-radius: 10px;
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: rgb(113 113 126);
+
+        border-radius: 10px;
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: rgb(63 98 18); 
+    }
 }

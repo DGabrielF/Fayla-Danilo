@@ -5,24 +5,18 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body class="bg-zinc-900">
-        <div class="max-h-[320px] overflow-auto mx-auto relative my-8 flex-nowrap flex items-center justify-center gap-2">
-            <!-- <div class="absolute w-full h-full text-gray-200 max-h-[500px] bg-black/30 flex flex-col justify-end items-start">
-                <img class="max-h-[100px] object-cover" src="transparent-names.png" alt="Fayla e Danilo">
-                <h1 class="text-green-600 w-56 text-left px-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font bold">Fayla</h1>
-                <h1 class="text-slate-100 w-56 text-center px-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font bold">&</h1>
-                <h1 class="text-green-600 w-56 text-right px-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font bold">Danilo</h1>
-            </div> -->
-            <img class="max-h-[300px] object-cover m-auto rounded-3xl" src="./assets/hero1.jpeg" alt="O casal que mais se ama no mundo, Os Bezudos">
-            <img class="max-h-[300px] object-cover m-auto rounded-3xl" src="./assets/hero2.jpeg" alt="O casal que mais se ama no mundo, Os Bezudos">
-            <img class="max-h-[300px] object-cover m-auto rounded-3xl" src="./assets/hero.jpeg" alt="O casal que mais se ama no mundo, Os Bezudos">
-            <img class="max-h-[300px] object-cover m-auto rounded-3xl" src="./assets/hero3.jpeg" alt="O casal que mais se ama no mundo, Os Bezudos">
-            <img class="max-h-[300px] object-cover m-auto rounded-3xl" src="./assets/hero4.jpeg" alt="O casal que mais se ama no mundo, Os Bezudos">
-        </div>
+    <!-- Hero -->
+    <div 
+    id="hero-base"
+    class="w-auto overflow-x-auto gap-4">
+        <div id="superior-hero-style" class="flex py-2 justify-around w-[4280px] overflow-x-auto"></div>
+        <div id="hero" class="flex gap-6 ml-6"></div>
+        <div id="inferior-hero-style" class="flex py-2 justify-around w-[4280px] overflow-x-auto"></div>
+    </div>
     <!-- Background -->
-    <div class="w-full h-full text-lime-200 flex flex-col text-2xl lg:text-lg xl:text-base mt-8">
-        <!-- Hero -->
+    <div class="w-full h-screen text-lime-200 flex flex-col text-2xl lg:text-lg xl:text-base mt-8">
         <!-- Navbar -->
-        <div class="w-[98%] flex items-center justify-between my-4 mx-auto">
+        <div class="w-[98%] flex items-center justify-between my-4 mx-auto bg-zinc-900">
             <!-- Hamburguer menu -->
             <div 
             class="w-[15%] px-4 lg:hidden">
@@ -67,7 +61,7 @@
                 </div>
                 <input 
                 id="search-entry" 
-                class="w-full text-4xl lg:text-2xl border-4 rounded-xl px-4 border-lime-800 hover:bg-lime-50 focus:bg-lime-50 font-black hover:font-black focus:font-black items-center"
+                class="w-full text-4xl lg:text-2xl border-4 rounded-xl px-4 py-6 border-lime-800 hover:bg-lime-50 focus:bg-lime-50 font-black hover:font-black focus:font-black items-center"
                 type="text"
                 placeholder="Buscar por presente">
             </div>
@@ -75,11 +69,11 @@
         <!-- Sidebar -->
         <div
         id="nav-menu"
-        class="hidden z-10 flex-col gap-2">
+        class="hidden z-20 flex-col gap-2">
             <button id="Tudo" class="filter-buttons">Tudo</button>
             <button id="Cozinha" class="filter-buttons">Cozinha</button>
             <button id="Quarto" class="filter-buttons">Quarto</button>
-            <button id="Sala" class="filter-buttons">Sala</button>
+            <button id="Sala" class="filter-buttons">Sala</button> 
             <div class="bg-lime-700 w-4/5 h-2 mt-12 mb-6 rounded-full mx-auto"></div>
             <button id="informacoes" class="filter-buttons">Informações</button>
             <button id="instrucoes" class="filter-buttons">Instruções</button>
@@ -101,10 +95,14 @@
             <div class="w-full flex flex-col items-center justify-between px-8 pb-6 bg-zinc-800 rounded-t-xl">
                 <div 
                 id="close" 
-                class="w-[95%] text-end text-4xl lg:text-xl font-bold cursor-pointer">
-                    X
+                class="w-[95%] justify-end items-end text-4xl lg:text-xl font-bold cursor-pointer">                    
+                <div id="close"  class="flex justify-end">
+                    <svg id="close" aria-hidden="true" class="w-14 h-14" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    </svg>
+                </div>    
                 </div>
-                <div class="text-5xl lg:text-3xl font-extrabold">
+                <div class="text-5xl font-extrabold">
                     ENVIAR VALE
                 </div>
             </div>
@@ -114,7 +112,7 @@
                 <label for="name"></label>
                 <input 
                 id="name"
-                class="w-full border-4 py-2 rounded-xl border-zinc-500 hover:bg-lime-100 focus:bg-lime-100 px-4 font-black text-4xl lg:text-lg"
+                class="w-full border-4 py-2 rounded-xl border-zinc-500 hover:bg-lime-100 focus:bg-lime-100 px-4 font-black text-4xl"
                 type="text"
                 placeholder="Digite seu nome">
                 <div class="flex py-5 items-center">
@@ -128,7 +126,7 @@
                         checked>
                     </div>
                     <label 
-                    class="w-full mx-4 text-4xl lg:text-lg" 
+                    class="w-full mx-4 text-4xl" 
                     for="pix">
                         PIX
                     </label>
@@ -143,14 +141,14 @@
                         value="transf">
                     </div>
                     <label 
-                    class="w-full mx-4 text-4xl lg:text-lg" 
+                    class="w-full mx-4 text-4xl" 
                     for="transf">
                         Transferência
                     </label>
                 </div>
-                <div class="text-orange-500 bg-orange-500/5 text-center py-4 px-8 mt-6 rounded-2xl">
+                <div class="text-orange-500 bg-orange-500/5 text-2xl text-center py-4 px-8 mt-6 rounded-2xl">
                     <span>
-                        Após confirmar o vale só envie o valor após a confirmação com um dos noivos, Fayla ou Danilo.
+                        Após confirmar o vale, gentileza entrar em contato com um dos noivos, Fayla ou Danilo, para obter os dados para o pix/transferência.
                     </span>
 
                 </div>
@@ -158,7 +156,7 @@
             <button 
             name=""
             id="confirm"
-            class="w-full bg-zinc-800 border-4 rounded-xl border-lime-700 hover:bg-lime-900 px-4 py-6 text-4xl lg:text-2xl font-bold hover:scale-[1.05]">
+            class="w-full bg-zinc-800 border-4 rounded-xl border-lime-700 hover:bg-lime-900 px-4 py-6 text-4xl font-bold hover:scale-[1.05]">
                 CONFIRMAR
             </button>
         </div>
@@ -298,14 +296,24 @@
     function putAllCardsFromDb() {
         getDocs(collection(db, 'gifts')).then(docSnap => {
             let gifts = []
+            let receivedGifts = []
             docSnap.forEach((doc) => {
                 gifts.push({ ...doc.data(), id: doc.id})
             });
             const contentDiv = document.getElementById("card-space")
             gifts.forEach(dataItem => {
-                let element = document.createElement('div');
-                element.innerHTML = createCard(dataItem);
-                contentDiv.appendChild(element);
+                if (dataItem.gifter == 'NULL') {
+                    let element = document.createElement('div')
+                    element.innerHTML = createCard(dataItem)
+                    contentDiv.appendChild(element)
+                } else {
+                    receivedGifts.push(dataItem)
+                }
+            })
+            receivedGifts.forEach(receivedItem => {
+                let element = document.createElement('div')
+                element.innerHTML = createCard(receivedItem)
+                contentDiv.appendChild(element)
             })
         })
     }
@@ -356,9 +364,19 @@
         }
     }
 
+    function removeWarningToastAlertsByTimeOut() {
+        warning = document.getElementById('toast-warning')
+        warning.classList.add("hidden")
+        warning.classList.remove("flex")
+
+    }
+
+    function getRndInteger(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) ) + min
+    }
+
     document.addEventListener('click', (e) => {
         let elementId = e.target.id;
-        console.log('id: ',elementId)
         if (elementId.length == 20) {
             document.getElementById("modal").classList.remove("hidden")
             document.getElementById('overlay').classList.remove("hidden")
@@ -374,6 +392,7 @@
             document.getElementById('information').classList.add("hidden")
             document.getElementById('instruction').classList.add("hidden")
             document.getElementById("confirm").name = ''
+            document.location.reload()
         } else if (["Cozinha", "Sala", "Quarto"].includes(elementId)) {
             document.getElementById('overlay').classList.add("hidden")
             document.getElementById('nav-menu').classList.add("hidden")
@@ -396,11 +415,9 @@
             document.getElementById('nav-menu').classList.add("hidden")
             putAllCardsFromDb()
         } else if (elementId == "search") {
-            console.log('inicio')
             const target_value = document.getElementById("search-entry").value
             if (target_value != '') {
                 const q = query(collection(db, 'gifts'), where('description', 'array-contains', target_value))
-                console.log('valor digitado: ', target_value)
                 getDocs(collection(db, 'gifts')).then(docSnap => {
                     let allGifts = []
                     docSnap.forEach((gift) => {
@@ -420,25 +437,24 @@
                     contentDiv.appendChild(element);
                 })
                 })
-            } else {
-                console.log('Entrada inválida')
-            }
+            } 
         } else if (elementId == 'menu') {
             document.getElementById('overlay').classList.remove("hidden")
             document.getElementById('nav-menu').classList.remove("hidden")
             document.getElementById('nav-menu').classList.add("flex")
-            console.log(document.getElementById('nav-menu').classList)
         } else if (elementId == 'close-toast') {
+            document.getElementById('overlay').classList.add("hidden")
             document.getElementById('toast-success').classList.add("hidden")
             document.getElementById('toast-success').classList.remove("flex")
             document.getElementById('toast-warning').classList.add("hidden")
             document.getElementById('toast-warning').classList.remove("flex")
         } else if (elementId == 'button-disabled') {
-            const warning = document.getElementById('toast-warning')
-            document.getElementById('toast-warning-text').innerHTML = 'Este vale já foi selecionado.<br/> Vamos tentar outro?'
-            warning.classList.remove("hidden")
-            warning.classList.add("flex")
-            document.getElementById('overlay').classList.remove("hidden")
+            // const warning = document.getElementById('toast-warning')
+            // document.getElementById('toast-warning-text').innerHTML = 'Este vale já foi selecionado.<br/> Vamos tentar outro?'
+            // warning.classList.remove("hidden")
+            // warning.classList.add("flex")
+            // setTimeout(removeWarningToastAlertsByTimeOut, 3000)
+            // document.getElementById('overlay').classList.remove("hidden")
         }  else if (elementId == 'informacoes') {
             document.getElementById('overlay').classList.remove("hidden")
             document.getElementById('nav-menu').classList.add("hidden")
@@ -470,27 +486,37 @@
                         </svg>
                         Vale ${item.name}
                      </div>
-                    <div class="bg-zinc-800 w-full">
-                        <img class="w-full h-full object-cover rounded-lg" src= ${item.image} alt= ${item.name}></img>
+                    `
+        if (item.gifter != 'NULL') {
+            cardString += 
+                    `<div class="bg-zinc-800 w-full h-[450px] flex justify-center">
+                        <img class="h-full object-cover rounded-lg opacity-40" src= ${item.image} alt= ${item.name}></img>
                     </div>
-                    <div class="bg-zinc-800 w-full text-center text-3xl lg:text-xl">
+                    <div class="bg-zinc-800 h-24 w-full text-center text-3xl lg:text-xl">
                         ${item.description}
                     </div>
                     <div class="bg-zinc-800 w-full rounded-b-xl text-center font-semibold text-4xl lg:text-2xl">
                         R$ ${item.price}
                     </div>
-                </div>`
-        console.log(item.gifter)
-        if (item.gifter != 'NULL') {
-            cardString += 
-                `<button 
+                </div>
+                <button 
                     id="button-disabled"
-                    class="item-button bg-zinc-900 w-full border-4 border-lime-800 hover:border-lime-600 rounded-xl text-4xl lg:text-2xl font-extrabold hover:scale-[1.05] py-4"
-                    >PRESENTEAR
+                    class="item-button bg-zinc-900 w-full border-4 border-lime-800 rounded-xl text-4xl lg:text-2xl font-extrabold py-4"
+                    disabled>RECEBIDO
                 </button></div>
             </div>`
         } else {
-            cardString += `
+            cardString += 
+                    `<div class="bg-zinc-800 w-full h-[450px] flex justify-center">
+                        <img class="h-full object-cover rounded-lg" src= ${item.image} alt= ${item.name}></img>
+                    </div>
+                    <div id="description" class="bg-zinc-800 h-24 w-[90%] mx-auto text-center text-3xl lg:text-xl flex items-center justify-center">
+                        ${item.description}
+                    </div>
+                    <div class="bg-zinc-800 w-full rounded-b-xl text-center font-semibold text-4xl lg:text-2xl">
+                        R$ ${item.price}
+                    </div>
+                </div>
                 <button 
                     id="${item.id}"
                     class="item-button bg-lime-700 hover:bg-lime-900 w-full border-4 border-lime-800 hover:border-lime-600 rounded-xl text-4xl lg:text-2xl font-extrabold hover:scale-[1.05] py-4" 
@@ -500,5 +526,57 @@
         }
         return cardString
     }
-    // putAllCardsFromDb()     
+
+    function putPhotosInHero() {
+        let photoList = []
+        for (let i = 0; i <= 14; i++) {
+           photoList.push("hero-"+i+".jpeg")        
+        }
+        const hero = document.getElementById("hero")
+        photoList.forEach(photo => {
+            let element = document.createElement('img')
+            element.classList.add("max-h-[280px]","object-cover","m-auto", "rounded-3xl")
+            element.src=`./assets/hero-images/${photo}`
+            element.alt="O casal que mais se ama no mundo, Os Bezudos">
+            hero.appendChild(element)
+        })
+    }
+
+    function createStyleForHero() {
+        const heroSup = document.getElementById("superior-hero-style")
+        const heroInf = document.getElementById("inferior-hero-style")
+        const heroBase = document.getElementById("hero-base")
+
+        for (let widht = 0; widht <= 70; widht++) {
+            let elementTop = document.createElement('div')
+            elementTop.classList.add("bg-white","w-3","h-4","rounded")
+            heroSup.appendChild(elementTop)
+
+            let elementBotton = document.createElement('div')
+            elementBotton.classList.add("bg-white","w-3","h-4","rounded")
+            heroInf.appendChild(elementBotton)            
+        }
+    }
+
+    function cleanAllCardsFromDb() {
+        getDocs(collection(db, 'gifts')).then(docSnap => {
+            let gifts = []
+            docSnap.forEach((doc) => {
+                gifts.push({ ...doc.data(), id: doc.id})
+            });
+            const contentDiv = document.getElementById("card-space")
+            gifts.forEach(dataItem => {
+                const name = dataItem.id
+                updateDoc(doc(db, 'gifts', name),{
+                    gifter: "NULL",
+                    payWays: []
+                })
+            })
+        })
+    }
+
+    // cleanAllCardsFromDb()
+    putPhotosInHero()
+    createStyleForHero()
+    putAllCardsFromDb()     
   </script>
