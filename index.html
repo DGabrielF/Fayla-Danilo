@@ -293,29 +293,33 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app)
 
+    function putInactiveCardsToTheEnd(gifts, containerId) {
+        let receivedGifts = []
+        const contentDiv = document.getElementById(containerId)
+        gifts.forEach(dataItem => {
+            if (dataItem.gifter == 'NULL') {
+                let element = document.createElement('div')
+                element.innerHTML = createCard(dataItem)
+                contentDiv.appendChild(element)
+            } else {
+                receivedGifts.push(dataItem)
+            }
+        })
+        receivedGifts.forEach(receivedItem => {
+            let element = document.createElement('div')
+            element.innerHTML = createCard(receivedItem)
+            contentDiv.appendChild(element)
+        })
+    }
+
     function putAllCardsFromDb() {
         getDocs(collection(db, 'gifts')).then(docSnap => {
-            let gifts = []
-            let receivedGifts = []
+            let gifts = []            
             docSnap.forEach((doc) => {
                 gifts.push({ ...doc.data(), id: doc.id})
             });
-            const contentDiv = document.getElementById("card-space")
-            gifts.forEach(dataItem => {
-                if (dataItem.gifter == 'NULL') {
-                    let element = document.createElement('div')
-                    element.innerHTML = createCard(dataItem)
-                    contentDiv.appendChild(element)
-                } else {
-                    receivedGifts.push(dataItem)
-                }
-            })
-            receivedGifts.forEach(receivedItem => {
-                let element = document.createElement('div')
-                element.innerHTML = createCard(receivedItem)
-                contentDiv.appendChild(element)
-            })
-        })
+            putInactiveCardsToTheEnd(gifts, "card-space")
+         })
     }
 
     function sendGifterToDb() {
@@ -403,12 +407,7 @@
                     gifts.push({ ...doc.data(), id: doc.id})
                 })
                 document.getElementById("card-space").innerHTML = ''
-                const cardSpace = document.getElementById("card-space")
-                gifts.forEach(dataItem => {
-                    let element = document.createElement('div')
-                    element.innerHTML = createCard(dataItem)
-                    cardSpace.appendChild(element)
-                })
+                putInactiveCardsToTheEnd(gifts, "card-space")
             })
         } else if (elementId == "Tudo") {
             document.getElementById('overlay').classList.add("hidden")
@@ -430,14 +429,11 @@
                     }
                 })
                 document.getElementById("card-space").innerHTML = ''
-                const contentDiv = document.getElementById("card-space")
-                gifts.forEach(dataItem => {
-                    let element = document.createElement('div');
-                    element.innerHTML = createCard(dataItem);
-                    contentDiv.appendChild(element);
+                putInactiveCardsToTheEnd(gifts, "card-space")
                 })
-                })
-            } 
+            } else {
+                console.log('Entrada inválida')
+            }
         } else if (elementId == 'menu') {
             document.getElementById('overlay').classList.remove("hidden")
             document.getElementById('nav-menu').classList.remove("hidden")
@@ -448,13 +444,6 @@
             document.getElementById('toast-success').classList.remove("flex")
             document.getElementById('toast-warning').classList.add("hidden")
             document.getElementById('toast-warning').classList.remove("flex")
-        } else if (elementId == 'button-disabled') {
-            // const warning = document.getElementById('toast-warning')
-            // document.getElementById('toast-warning-text').innerHTML = 'Este vale já foi selecionado.<br/> Vamos tentar outro?'
-            // warning.classList.remove("hidden")
-            // warning.classList.add("flex")
-            // setTimeout(removeWarningToastAlertsByTimeOut, 3000)
-            // document.getElementById('overlay').classList.remove("hidden")
         }  else if (elementId == 'informacoes') {
             document.getElementById('overlay').classList.remove("hidden")
             document.getElementById('nav-menu').classList.add("hidden")
@@ -543,18 +532,14 @@
     }
 
     function createStyleForHero() {
-        const heroSup = document.getElementById("superior-hero-style")
-        const heroInf = document.getElementById("inferior-hero-style")
-        const heroBase = document.getElementById("hero-base")
-
         for (let widht = 0; widht <= 70; widht++) {
             let elementTop = document.createElement('div')
             elementTop.classList.add("bg-white","w-3","h-4","rounded")
-            heroSup.appendChild(elementTop)
+            document.getElementById("superior-hero-style").appendChild(elementTop)
 
             let elementBotton = document.createElement('div')
             elementBotton.classList.add("bg-white","w-3","h-4","rounded")
-            heroInf.appendChild(elementBotton)            
+            document.getElementById("inferior-hero-style").appendChild(elementBotton)            
         }
     }
 
@@ -574,7 +559,7 @@
             })
         })
     }
-
+    
     // cleanAllCardsFromDb()
     putPhotosInHero()
     createStyleForHero()
