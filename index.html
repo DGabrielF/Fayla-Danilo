@@ -394,7 +394,6 @@
 
     document.addEventListener('click', (e) => {
         let elementId = e.target.id;
-        console.log(elementId)
         if (elementId.length == 20) {
             unhideElements(['modal','overlay'])
             document.getElementById("confirm").name = elementId
@@ -456,7 +455,6 @@
     })
     
     function createCard(item) {
-        console.log(item)
         let cardString = 
             `<div class="w-full h-full font-medium text-lime-100 font flex flex-col items-center justify-end rounded-xl gap-1">
                 <div class="w-full h-full bg-zinc-800 border-4 border-lime-700 rounded-2xl hover:scale-[1.02] flex flex-col justify-between">
@@ -555,7 +553,7 @@
         })
     }
     
-    cleanAllCardsFromDb()
+    // cleanAllCardsFromDb()
     putPhotosInHero()
     createStyleForHero()
     putAllCardsFromDb()     
