@@ -347,7 +347,7 @@
                 document.getElementById('toast-warning').classList.add("hidden")
                 document.getElementById('toast-success').classList.remove("hidden")
                 document.getElementById('toast-success').classList.add("flex")
-                document.getElementById(nome).setAttribute('disabled', '')
+                document.getElementById(name).setAttribute('disabled', '')
                 // payment.push(document.querySelector('[name="payment"]:checked'))
     
             } else {
@@ -454,8 +454,9 @@
             document.getElementById('instruction').classList.add("flex")
         }
     })
-
+    
     function createCard(item) {
+        console.log(item)
         let cardString = 
             `<div class="w-full h-full font-medium text-lime-100 font flex flex-col items-center justify-end rounded-xl gap-1">
                 <div class="w-full h-full bg-zinc-800 border-4 border-lime-700 rounded-2xl hover:scale-[1.02] flex flex-col justify-between">
@@ -557,5 +558,5 @@
     cleanAllCardsFromDb()
     putPhotosInHero()
     createStyleForHero()
-    // putAllCardsFromDb()     
+    putAllCardsFromDb()     
   </script>
